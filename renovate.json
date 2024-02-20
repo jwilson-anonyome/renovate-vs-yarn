@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>whitesource/merge-confidence:beta"],
+  "groupName": "all",
+  "branchPrefix": "renovate",
+  "dependencyDashboard": false,
+  "recreateWhen": "always",
+  "prHourlyLimit": 0,
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "registryUrls": ["https://registry.npmjs.org/"],
+      "postUpgradeTasks": {
+        "commands": [
+          "yarn lint --fix",
+        ]
+      }
+    }
+  ]
+}
